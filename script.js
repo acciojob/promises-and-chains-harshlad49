@@ -1,5 +1,4 @@
 //your JS code here. If required.
-<script>
     const form = document.getElementById("voteForm");
     const nameInput = document.getElementById("name");
     const ageInput = document.getElementById("age");
