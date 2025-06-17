@@ -24,7 +24,7 @@
   </form>
 
   <script >document.getElementById('votingForm').addEventListener('submit', function (e) {
-  e.preventDefault(); // Prevent page reload
+  e.preventDefault();
 
   const nameInput = document.getElementById('name');
   const ageInput = document.getElementById('age');
@@ -37,21 +37,22 @@
     return;
   }
 
-  const checkEligibility = new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => {
     setTimeout(() => {
       if (age > 18) {
-        resolve(`Welcome, ${name}. You can vote.`);
+        resolve();
       } else {
-        reject(`Oh sorry ${name}. You aren't old enough.`);
+        reject();
       }
     }, 4000);
+  })
+  .then(() => {
+    alert(`Welcome, ${name}. You can vote.`);
+  })
+  .catch(() => {
+    alert(`Oh sorry ${name}. You aren't old enough.`);
   });
-
-  checkEligibility
-    .then(message => alert(message))
-    .catch(error => alert(error));
 });
-
 </script>
 </body>
 </html>
