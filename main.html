@@ -2,78 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Asian Paints Grid</title>
-  <style>
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-template-rows: repeat(3, 100px);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .grid-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      border: 1px solid #000;
-      background-color: transparent;
-    }
-    input, button {
-      margin: 5px;
-      padding: 8px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voting Eligibility</title>
 </head>
 <body>
 
-  <!-- ✅ Correct container class -->
-  <div class="grid-container">
-    <!-- ✅ grid-item class and ids 1-9 with correct text -->
-    <div class="grid-item" id="1">1</div>
-    <div class="grid-item" id="2">2</div>
-    <div class="grid-item" id="3">3</div>
-    <div class="grid-item" id="4">4</div>
-    <div class="grid-item" id="5">5</div>
-    <div class="grid-item" id="6">6</div>
-    <div class="grid-item" id="7">7</div>
-    <div class="grid-item" id="8">8</div>
-    <div class="grid-item" id="9">9</div>
-  </div>
+  <h2>Check Voting Eligibility</h2>
 
-  <!-- ✅ Inputs with correct IDs -->
-  <input type="number" id="block_id" placeholder="Enter Block ID (1-9)" />
-  <input type="text" id="colour_id" placeholder="Enter Color (e.g., red)" />
+  <form id="votingForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" />
 
-  <!-- ✅ Button IDs and text must match test -->
-  <button id="change_button">Change</button>
-  <button id="reset_button">Reset</button>
+    <br /><br />
 
-  <script>
-    const changeButton = document.getElementById("change_button");
-    const resetButton = document.getElementById("reset_button");
+    <label for="age">Age:</label>
+    <input type="number" id="age" />
 
-    function resetGridColors() {
-      for (let i = 1; i <= 9; i++) {
-        document.getElementById(i.toString()).style.backgroundColor = "transparent";
-      }
-    }
+    <br /><br />
 
-    changeButton.addEventListener("click", () => {
-      const blockId = document.getElementById("block_id").value;
-      const color = document.getElementById("colour_id").value;
+    <button id="btn" type="submit">Submit</button>
+  </form>
 
-      if (blockId < 1 || blockId > 9) {
-        alert("Please enter a valid Block ID between 1 and 9.");
-        return;
-      }
-
-      resetGridColors();
-      document.getElementById(blockId).style.backgroundColor = color;
-    });
-
-    resetButton.addEventListener("click", resetGridColors);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
